@@ -16,7 +16,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/nailpolish', [NailpolishController::class, 'index'])->name('nailpolish.index');
+    Route::get('/nailpolishes', [NailpolishController::class, 'index'])->name('nailpolishes.index');
+    Route::get('/nailpolishes/{nailpolish}', [NailpolishController::class, 'show'])->name('nailpolishes.show');
 });
 
 require __DIR__.'/auth.php';

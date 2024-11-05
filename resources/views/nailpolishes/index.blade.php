@@ -12,6 +12,7 @@
                     <h3 class="font-semibold text-lg mb-4">List of Nailpolishes:</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach($nailpolishes as $nailpolish)
+                        <a href="{{ route('nailpolishes.show', $nailpolish) }}">
                             <x-nailpolish-card
                                 :name="$nailpolish->name"
                                 :image="$nailpolish->image"
@@ -20,6 +21,7 @@
                                 :description="$nailpolish->description"
 
                             />
+                        </a>    
                         @endforeach
                     </div>
                         
