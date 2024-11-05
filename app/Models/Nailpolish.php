@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Nailpolish extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+        'updated_at',
+        'created_at',
+    ];
 }
