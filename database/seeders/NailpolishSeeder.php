@@ -12,9 +12,10 @@ class NailpolishSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(): void   //void means the method doesnt return a value
     {
         $currentTimestamp = Carbon::now();
+        //insert method lets model insert multiple records in a single query
             Nailpolish:: insert([
                 ['name' => 'Lilac', 'description' => 'lilac nailpolish','image' => 'lilac.jfif', 'created_at' => $currentTimestamp, 'updated_at' => $currentTimestamp],
                 ['name' => 'Green', 'description' => 'green nailpolish', 'image' => 'green.jpg','created_at' => $currentTimestamp, 'updated_at' => $currentTimestamp],

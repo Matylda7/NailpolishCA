@@ -16,12 +16,12 @@
              value="{{ old('title' , $nailpolish->name ?? '') }}"
              required
              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" />
-             
+            
          @error('name')
              <p class="text-sm text-red-600">{{ $message }}</p>
          @enderror
      </div>
-  
+
         
          <div class="mb-4">
              <label for="image" class="block text-sm font-medium text-gray-700">Nailpolish image</label>

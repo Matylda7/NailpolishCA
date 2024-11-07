@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create New Nailpolish') }}
+            {{ __('Edit the Nailpolish') }}
         </h2>
     </x-slot>
 
@@ -11,8 +11,9 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">Nailpolish Details</h3>
                     
-                    
+                            <!--the form will be submitted to nailpolishes.update, the fields will be prefilled with the specific nailpolish -->
                             <x-nailpolish-form
+                            
                                :action="route('nailpolishes.update', $nailpolish)";
                                :method="'POST'"
                                :nailpolish="$nailpolish"

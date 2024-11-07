@@ -11,12 +11,10 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">Nailpolish Details</h3>
                     
-                    
+
                             <x-nailpolish-details
                                 :name="$nailpolish->name"
                                 :image="$nailpolish->image"
-                                
-                                
                                 :description="$nailpolish->description"
 
                             />

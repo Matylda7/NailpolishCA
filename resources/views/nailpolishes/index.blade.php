@@ -1,3 +1,4 @@
+<!-- The main page with all nailpolishes listed and an add and delete button -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -20,8 +21,6 @@
                             <x-nailpolish-card
                                 :name="$nailpolish->name"
                                 :image="$nailpolish->image"
-                                :author="$nailpolish->author"
-                                :year="$nailpolish->year"
                                 :description="$nailpolish->description"
 
                             />
