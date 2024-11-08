@@ -40,7 +40,7 @@ class NailpolishController extends Controller
         //check if image file was uploaded
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
-            $request->time->move(public_path('images/nailpolishes'), $imageName);
+            $request->image->move(public_path('images/nailpolishes'), $imageName);
         }
         //create new nailpolish record in database
         Nailpolish::create([
@@ -50,16 +50,7 @@ class NailpolishController extends Controller
             'updated_at' => now(),
             'created_at' => now()
         ]);
-
-       /* Nailpolish::edit([
-            'name' => $request->name,
-            'description' => $request->description,
-            'image' => $imageName,
-            'updated_at' => now(),
-            'created_at' => now()
-        ]);
         
-        */
         //redirect to the index page with a success message
         return to_route('nailpolishes.index')->with('success','Nailpolish created successfully!');
     }
@@ -76,17 +67,13 @@ class NailpolishController extends Controller
     /**
      * Show the form for editing the specified nailpolish.
      */
-    public function edit(Nailpolish $nailpolish): View
+    public function edit(Nailpolish $nailpolish)
     {
         //
-        Gate::authorize('update', $nailpolish);
+        // Gate::authorize('update', $nailpolish);
         
         //pass retrieved nailpolish to the nailpolishes.edit view
-        return view('nailpolishes.edit', [
-            'nailpolish' => $nailpolish,
-        ]);
-
-       
+        return view('nailpolishes.edit')->with('nailpolish', $nailpolish);       
     }
 
     /**
@@ -95,7 +82,7 @@ class NailpolishController extends Controller
     public function update(Request $request, Nailpolish $nailpolish): RedirectResponse
     {
         //
-        Gate::authorize('update', $nailpolish);
+        // Gate::authorize('update', $nailpolish);
  
         $validated = $request->validate([
             'message' => 'required|string|max:255',
@@ -114,7 +101,7 @@ class NailpolishController extends Controller
     public function destroy(Nailpolish $nailpolish)
     {
        //
-       Gate::authorize('delete', $nailpolish);
+    //    Gate::authorize('delete', $nailpolish);
         //delete nailpolish record in database
        $nailpolish->delete();
 

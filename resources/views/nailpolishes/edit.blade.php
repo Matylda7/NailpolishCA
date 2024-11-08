@@ -12,9 +12,8 @@
                     <h3 class="font-semibold text-lg mb-4">Nailpolish Details</h3>
                     
                             <!--the form will be submitted to nailpolishes.update, the fields will be prefilled with the specific nailpolish -->
-                            <x-nailpolish-form
-                            
-                               :action="route('nailpolishes.update', $nailpolish)";
+                            <x-nail-polish-form                            
+                               :action="route('nailpolishes.update', $nailpolish)"
                                :method="'POST'"
                                :nailpolish="$nailpolish"
                             />

@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('nailpolishes.index')" :active="request()->routeIs('nailpolishes.index')">
                         {{ __('View All Nailpolishes') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('nailpolishes.create')" :active="request()->routeIs('nailpolishes.create')">
+                        {{ __('Create a Nailpolish') }}
+                    </x-nav-link>
                 </div>
             </div>
 

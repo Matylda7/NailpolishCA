@@ -12,19 +12,10 @@
                     <h3 class="font-semibold text-lg mb-4">Add a New Nailpolish:</h3>
                     
                             <!-- The form will be submitted to nailpolishes.store -->
-                            <x-nailpolish-form
+                            <x-nail-polish-form
                                 :action="route('nailpolishes.store')"
-                                :method="'POST'"
-                                
-                                
-                                
-
+                                :method="'POST'"                                                                                                
                             />
-                          
-                       
-                    
-                        
-                    
                 </div>
             </div>
         </div>

@@ -6,12 +6,11 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class NailpolishForm extends Component
+class NailPolishForm extends Component
 {
     /**
      * Create a new component instance.
      */
-    
     public function __construct()
     {
         //
@@ -22,6 +21,6 @@ class NailpolishForm extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.nailpolish-form');
+        return view('components.nail-polish-form');
     }
 }
