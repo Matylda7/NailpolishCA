@@ -100,8 +100,6 @@ class NailpolishController extends Controller
      */
     public function destroy(Nailpolish $nailpolish)
     {
-       //
-    //    Gate::authorize('delete', $nailpolish);
         //delete nailpolish record in database
        $nailpolish->delete();
 
