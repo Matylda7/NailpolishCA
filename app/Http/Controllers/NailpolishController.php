@@ -23,6 +23,9 @@ class NailpolishController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('nailpolishes.index')->with('error', 'Access denied.');
+        }
         return view('nailpolishes.create');//render the nailpolishes.create view to display the form
     }
 
