@@ -63,8 +63,9 @@ class NailpolishController extends Controller
      */
     public function show(Nailpolish $nailpolish)
     {
-    
-        return view('nailpolishes.show')->with('nailpolish', $nailpolish);
+        $nailpolish->load('reviews.user');
+        return view('nailpolishes.show', compact('nailpolish'));
+        //return view('nailpolishes.show')->with('nailpolish', $nailpolish);
     }
 
     /**

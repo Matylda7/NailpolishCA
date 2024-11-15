@@ -16,4 +16,9 @@ class Nailpolish extends Model
         'updated_at',
         'created_at',
     ];
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
