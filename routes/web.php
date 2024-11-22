@@ -23,12 +23,12 @@ Route::middleware('auth')->group(function () {
    Route::post('/nailpolishes', [NailpolishController::class, 'store'])->name('nailpolishes.store'); //handle creating a new nailpolish
 
    Route::get('/nailpolishes/{nailpolish}', [NailpolishController::class, 'show'])->name('nailpolishes.show');//display details of specific nailpolish   
-   Route::patch('/nailpolishes', [NailpolishController::class, 'update'])->name('nailpolishes.update');//update an exising new nailpolish
+   Route::patch('/nailpolishes/{nailpolish}', [NailpolishController::class, 'update'])->name('nailpolishes.update');//update an exising new nailpolish
    Route::get('/nailpolishes/{nailpolish}/edit', [NailpolishController::class, 'edit'])->name('nailpolishes.edit');//display edit form for existing nail polish
-   Route::delete('/nailpolishes', [NailpolishController::class, 'destroy'])->name('nailpolishes.destroy');//delete a specific existing nailpolish
+   Route::delete('/nailpolishes/{nailpolish}', [NailpolishController::class, 'destroy'])->name('nailpolishes.destroy');//delete a specific existing nailpolish
 });
-
-require __DIR__.'/auth.php';
 
 Route::resource('reviews', ReviewController::class);
 Route::post('nailpolishes/{nailpolish}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+require __DIR__.'/auth.php';

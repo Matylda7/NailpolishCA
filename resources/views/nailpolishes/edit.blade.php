@@ -14,7 +14,7 @@
                             <!--the form will be submitted to nailpolishes.update, the fields will be prefilled with the specific nailpolish -->
                             <x-nail-polish-form                            
                                :action="route('nailpolishes.update', $nailpolish)"
-                               :method="'POST'"
+                               :method="'PATCH'"
                                :nailpolish="$nailpolish"
                             />
                           

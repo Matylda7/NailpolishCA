@@ -83,20 +83,27 @@ class NailpolishController extends Controller
     /**
      * Update the specified nailpolish in storage.
      */
-    public function update(Request $request, Nailpolish $nailpolish): RedirectResponse
+    public function update(Request $request, Nailpolish $nailpolish)
     {
+        //dd(  $request->description);
         //
         // Gate::authorize('update', $nailpolish);
  
         $validated = $request->validate([
-            'message' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'image' => ''
         ]);
+
+
+
+        //dd($validated);
         
         //update nailpolish record in database
         $nailpolish->update($validated);
  
-        //return redirect(route('nailpolishes.index'));
-        return to_route('nailpolishes.index')->with('success','Nailpolish updated successfully!');
+        return redirect(route('nailpolishes.index'));
+        //return to_route('nailpolishes.index')->with('success','Nailpolish updated successfully!');
     }
 
     /**
@@ -104,6 +111,8 @@ class NailpolishController extends Controller
      */
     public function destroy(Nailpolish $nailpolish)
     {
+        
+
         //delete nailpolish record in database
        $nailpolish->delete();
 

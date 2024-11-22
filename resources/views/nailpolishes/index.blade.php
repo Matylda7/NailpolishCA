@@ -1,3 +1,9 @@
+<!-- ideas
+ Make so you can click on author name and direct to view their page
+ make so you can view list of categorie....maybe filter? -->
+
+
+
 <!-- The main page with all nailpolishes listed and an add and delete button -->
 <x-app-layout>
     <x-slot name="header">
@@ -32,6 +38,7 @@
                                 />
                             </a> 
                             @if(auth()->user()->role === 'admin') 
+                           
                                 <div class="mt-4 space-x-2" >
                                     <button><a href="{{ route('nailpolishes.edit', $nailpolish) }}" class="text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded">Edit</a></button>
 

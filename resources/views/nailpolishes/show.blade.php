@@ -24,8 +24,31 @@
                     @else
                         <ul class="mt-4 space-y-4">
                             @foreach($nailpolish->reviews as $review)
-
-                           
+                                @if ($review->user->is(auth()->user()) || auth()->user()->role ==='admin')
+                                <x-dropdown>    
+                                    <x-slot name="trigger">
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                            </svg>
+                                        </button>
+                                    </x-slot>
+                                    <x-slot name="content"> 
+                                    
+                                        <x-dropdown-link :href="route('reviews.edit', $review)">
+                                            {{ __('Edit') }}
+                                        </x-dropdown-link>
+                                        <form method="POST" action="{{ route('reviews.destroy', $review) }}">
+                                            @csrf
+                                            @method('delete')
+                                            <x-dropdown-link :href="route('reviews.destroy', $review)" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                {{ __('Delete') }}
+                                            </x-dropdown-link>
+                                        </form> 
+                                    </x-slot>
+                                </x-dropdown>
+                                @endif
+                             
 
                                 <li class="bg-gray-100 p-4 rounded-lg">
                                     <p class="font-semibold">{{ $review->user->name }} ({{ $review->created_at->format('M d, Y') }})</p>

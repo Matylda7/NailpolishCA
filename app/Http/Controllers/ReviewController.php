@@ -58,7 +58,7 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        //
+         return view('reviews.edit')->with('review', $review);
     }
 
     /**
@@ -74,6 +74,16 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        //   // Check if the user is the owner of the review or an admin
+        //   if (auth()->user()->id !== $review->user_id && auth()->user()->role !== 'admin') {
+        //     return redirect()->route('nailpolishes.index')->with('error', 'Access denied.');
+        // }
+
+        // // Delete the review
+        // $review->delete();
+
+        // // Redirect to the nailpolish page with a success message
+        // return redirect()->route('nailpolishes.show', $review->nailpolish_id)        
+        //                  ->with('success', 'Review deleted successfully.');
     }
 }
