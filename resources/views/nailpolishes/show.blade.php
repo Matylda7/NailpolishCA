@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+    <x-alert-success>
+        {{ session('success')}}
+
+    </x-alert-success>
+    <x-alert-error>
+        {{ session('error')}}
+
+    </x-alert-error>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

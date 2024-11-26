@@ -31,4 +31,6 @@ Route::middleware('auth')->group(function () {
 Route::resource('reviews', ReviewController::class);
 Route::post('nailpolishes/{nailpolish}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
+
+
 require __DIR__.'/auth.php';
