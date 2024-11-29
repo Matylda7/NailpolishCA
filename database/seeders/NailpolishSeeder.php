@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Nailpolish;
+use App\Models\Category;
 use Carbon\Carbon;
 
 class NailpolishSeeder extends Seeder

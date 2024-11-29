@@ -25,8 +25,10 @@
                                 :name="$nailpolish->name"
                                 :image="$nailpolish->image"
                                 :description="$nailpolish->description"
+                                :categories="$nailpolish->categories"
 
                             />
+                            
                     <h4 class="font-semibold text-md mt-8">Reviews</h4>
                     @if($nailpolish->reviews->isEmpty())
                         <p class="text-gray-600">No reviews yet.</p>

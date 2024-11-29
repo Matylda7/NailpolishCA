@@ -58,7 +58,7 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        if (auth()->user()->id !== $review->user_id && auth()->user()-role !== 'admin'){
+        if (auth()->user()->id !== $review->user_id && auth()->user()->role !== 'admin'){
             return redirect()->route('nailpolishes.show, $nailpolish')->with('error', 'Access denied.');
         }
         

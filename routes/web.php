@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\NailpolishController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('reviews', ReviewController::class);
 Route::post('nailpolishes/{nailpolish}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+Route::resource('categories', CategoryController::class)->middleware('auth');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 
 
 

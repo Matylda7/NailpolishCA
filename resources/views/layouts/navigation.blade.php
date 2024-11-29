@@ -25,6 +25,14 @@
                             {{ __('Create a Nailpolish') }}
                         </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('nailpolishes.index')">
+                        {{ __('View All Categories') }}
+                    </x-nav-link>
+                    @if(auth()->user()->role === 'admin')
+                        <x-nav-link :href="route('categories.create')" :active="request()->routeIs('categories.create')">
+                            {{ __('Create a Category') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

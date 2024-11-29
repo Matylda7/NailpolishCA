@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all(); // retrieve all categories from database
+        return view('categories.index', compact('categories')); //pass retrieved categories to the categories.index view
+        
     }
 
     /**
@@ -20,7 +22,10 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        if (auth()->user()->role !== 'admin') {
+            return redirect()->route('categories.index')->with('error', 'Access denied.');
+        }
+        return view('categories.create');//render the categories.create view to display the form
     }
 
     /**
@@ -44,7 +49,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit')->with('category', $category);       
     }
 
     /**

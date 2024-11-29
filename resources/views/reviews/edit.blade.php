@@ -1,10 +1,16 @@
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+
+   
+
+
         <form class="mt-4" method="POST" action="{{ route('reviews.update', $review) }}">
             @csrf
             @method('put')
             <label for="rating" class="block font-medium text-sm text-gray-700 mb-2">Rating</label>
                                 <div class="flex">
+
+                                <! loop that prints radio button stuff and only prints the attribute selected if the value ==  {{$review->rating}} !>
                                     <div class="flex items-center me-4">
                                     <input type="radio" id="rating" name="rating" value="1" required>
                                     <label for="rating" class="ml-2">1</label>
