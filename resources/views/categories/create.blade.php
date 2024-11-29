@@ -14,7 +14,9 @@
                             <!-- The form will be submitted to categories.store -->
                             <x-category-form
                                 :action="route('categories.store')"
-                                :method="'POST'"                                                                                                
+                                :method="'POST'"
+                                :nailpolishes="$nailpolishes"                   
+                                                                                                                                
                             />
                 </div>
             </div>

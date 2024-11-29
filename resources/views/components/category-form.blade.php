@@ -1,5 +1,5 @@
 
-@props(['action', 'method', 'category'])
+@props(['action', 'method', 'category', 'nailpolishes'])
  
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
 @csrf
@@ -20,6 +20,14 @@
         @error('name')
             <p class="text-sm text-red-600">{{ $message }}</p>
         @enderror
+    </div>
+    <div>
+        @foreach ($nailpolishes as $nailpolish)
+            <div>
+                <input type="checkbox" name="nailpolishes[]" value="{{ $nailpolish->id }}">
+                <label>{{ $nailpolish->name }}</label>
+            </div>
+        @endforeach
     </div>
 
    

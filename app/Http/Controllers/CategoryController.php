@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Nailpolish;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -25,7 +26,13 @@ class CategoryController extends Controller
         if (auth()->user()->role !== 'admin') {
             return redirect()->route('categories.index')->with('error', 'Access denied.');
         }
-        return view('categories.create');//render the categories.create view to display the form
+
+        // here are the nailpolishes
+        // here's the category
+
+        $nailpolishes = Nailpolish::All();
+
+        return view('categories.create')->with('nailpolishes', $nailpolishes);
     }
 
     /**
@@ -49,7 +56,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit')->with('category', $category);       
+        return view('categories.edit')->with('category', $category);
+        return view('categories.edit')->with('nailpolishes', $nailpolishes);       
     }
 
     /**
