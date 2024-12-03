@@ -15,9 +15,9 @@
                             <x-category-form
                                 :action="route('categories.store')"
                                 :method="'POST'"
-                                
-                                                                                                                                
+                                :nailpolishes="$nailpolishes"                                                                                                                                                                
                             />
+                    
                 </div>
             </div>
         </div>

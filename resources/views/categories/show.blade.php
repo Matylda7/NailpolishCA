@@ -27,6 +27,17 @@
                             <h4 class="font-semibold text-md mt-8">Nailpolishes</h4>
                     @if($category->nailpolishes->isEmpty())
                         <p class="text-gray-600">No nailpolishes yet.</p>
+                    @else
+                        <ul class="mt-4 space-y-4">
+                            @foreach($category->nailpolishes as $nailpolish)
+ 				                <x-nailpolish-card
+                                    :name="$nailpolish->name"
+                                    :image="$nailpolish->image"
+                                    :description="$nailpolish->description"
+
+                                />
+                            @endforeach
+
                     @endif
                 </div>
             </div>

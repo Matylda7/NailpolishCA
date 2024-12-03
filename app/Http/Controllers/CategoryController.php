@@ -40,7 +40,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::create([
+            'name' => $request->name,
+        ]);
+
+        $category->nailpolishes()->sync($request->nailpolishes);
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -56,8 +62,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('categories.edit')->with('category', $category);
-        return view('categories.edit')->with('nailpolishes', $nailpolishes);       
+
+        $relatedNailpolishes = $category->nailpolishes()->get();                
+        return view('categories.edit')->with('nailpolishes', $relatedNailpolishes)->with('category', $category);
     }
 
     /**

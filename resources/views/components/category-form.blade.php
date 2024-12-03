@@ -22,17 +22,16 @@
         @enderror
     </div>
     <div>
-       
+        <h3 class="font-semibold text-lg mb-4 pt-5">Assign this category to existing nailpolishes</h3>
+        <div>
+            @foreach ($nailpolishes as $nailpolish)
+            <div>
+                <input type="checkbox" id="checkbox" name="nailpolishes" value="{{ $nailpolish->id }}">
+                <label for="checkbox" class="ml-2">{{$nailpolish->name}}</label>
+            </div>
+            @endforeach
+        </div>
     </div>
-
-   
-
-    
-    
-    
-
-   
-
     <div>
         <x-primary-button>
             {{ isset($category) ? 'Update Category' : 'Add Category' }}

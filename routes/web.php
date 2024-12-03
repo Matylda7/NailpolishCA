@@ -35,7 +35,7 @@ Route::post('nailpolishes/{nailpolish}/reviews', [ReviewController::class, 'stor
 Route::resource('categories', CategoryController::class)->middleware('auth');
 Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
-
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 
 
 require __DIR__.'/auth.php';
