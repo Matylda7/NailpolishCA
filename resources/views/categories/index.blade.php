@@ -23,7 +23,8 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
                         
                         @foreach($categories as $category)
-                            <!-- <a href="{{ route('categories.show', $category) }}"> -->
+                            <a href="{{ route('categories.show', $category) }}">
+
                                 <x-category-card
                                     :name="$category->name"
 
