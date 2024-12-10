@@ -28,7 +28,7 @@ class CategoryController extends Controller
         }
 
         // here are the nailpolishes
-        // here's the category
+    
 
         $nailpolishes = Nailpolish::All();
 
@@ -63,8 +63,11 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
 
-        $relatedNailpolishes = $category->nailpolishes()->get();                
-        return view('categories.edit')->with('nailpolishes', $relatedNailpolishes)->with('category', $category);
+        $nailpolishes = Nailpolish::all();
+        
+        $categoryNailpolishes = $category->nailpolishes->pluck('id')->toArray();
+        // return redirect(route('categories.edit'));
+        return view('categories.edit', compact('category', 'nailpolishes', 'categoryNailpolishes'));
     }
 
     /**
@@ -72,7 +75,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:1000',
+
+            
+        ]);
+        $category->update($validated);
+
+        $nailpolishes = $request->nailpolishes ?? [];
+
+        $category->nailpolishes()->detach();
+        
+        if (!empty($nailpolishes)) {
+            $category->nailpolishes()->attach($nailpolishes);
+        }
+
+        return redirect()->route('categories.index')->with('success', 'Review updated Successfully');
     }
 
     /**
@@ -80,6 +98,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        
+        // Delete the review
+        $category->delete();        
+
+        // Redirect to the nailpolish page with a success message
+        return redirect(route('categories.index'));
+    
     }
 }

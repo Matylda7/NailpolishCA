@@ -16,7 +16,8 @@
                                :action="route('categories.update', $category)"
                                :method="'PATCH'"
                                :category="$category"
-                               :nailpolishes="$nailpolishes"                               
+                               :nailpolishes="$nailpolishes"  
+                               :categoryNailpolishes='$categoryNailpolishes'                             
                             />
                           
                 </div>
