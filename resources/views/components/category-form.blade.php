@@ -23,7 +23,7 @@
     </div>
     <div>
         <h3 class="font-semibold text-lg mb-4 pt-5">Assign this category to existing nailpolishes</h3>
-        <div>
+        <div style="margin-bottom: 30px;">
     
             @foreach ($nailpolishes as $nailpolish)
            

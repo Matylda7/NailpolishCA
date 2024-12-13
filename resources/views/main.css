@@ -5,3 +5,10 @@
     background-size: cover;
     background-position: center;
 }
+.mybutton {
+    background-color: #e5e8e8;
+                                        
+}
+.mybutton:hover{
+    background-color: #9dabab;
+}

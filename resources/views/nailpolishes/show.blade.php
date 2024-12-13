@@ -16,9 +16,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-stone-400 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h3 class="font-semibold text-lg mb-4">Nailpolish Details</h3>
+                    <h3 class="font-semibold text-xl mb-4">Nailpolish Details</h3>
                     
 
                             <x-nailpolish-details
@@ -29,9 +29,9 @@
 
                             />
                             
-                    <h4 class="font-semibold text-md mt-8">Reviews</h4>
+                    <h4 class="font-semibold text-lg mt-8">Reviews</h4>
                     @if($nailpolish->reviews->isEmpty())
-                        <p class="text-gray-600">No reviews yet.</p>
+                        <p class="text-gray-800">No reviews yet.</p>
                     @else
                         <ul class="mt-4 space-y-4">
                             @foreach($nailpolish->reviews as $review)
@@ -39,7 +39,7 @@
                                 <x-dropdown>    
                                     <x-slot name="trigger">
                                         <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" viewBox="0 0 20 20" fill="bg-stone-800">
                                                 <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                                             </svg>
                                         </button>
@@ -61,7 +61,7 @@
                                 @endif
                              
 
-                                <li class="bg-gray-100 p-4 rounded-lg">
+                                <li class="bg-stone-50 p-4 rounded-lg">
                                     <p class="font-semibold">{{ $review->user->name }} ({{ $review->created_at->format('M d, Y') }})</p>
                                     <p>Rating: {{ $review->rating }} /5</p>
                                     <p>{{ $review->comment }}</p>
@@ -74,7 +74,7 @@
                         
                     @endif
                        
-                    <h4 class="font-semibold text-md mt-8">Add a Review</h4>
+                    <h4 class="font-semibold text-lg mt-8">Add a Review</h4>
                     <form action="{{ route('reviews.store', $nailpolish) }}" method="POST" class="mt-4">
                         @csrf
                         
@@ -112,13 +112,13 @@
                             </select> -->
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 ml-5">
                             <label for="comment" class="block font-medium text-sm text-gray-700">Comment</label>
-                            <textarea name="comment" id="comment" rows="3" class="mt-1 block w-full" placeholder="Write your review here..."></textarea>
+                            <textarea name="comment" id="comment" rows="3" class="mt-1 block w-full bg-stone-50" placeholder="Write your review here..."></textarea>
                         </div>
-
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit Review</button>
-
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-slate-500 hover:bg-slate-800 text-slate-200 font-bold py-2 mb-5 mr-5 px-4 rounded">Submit Review</button>
+                        </div>
                     </form>
                     
                         
